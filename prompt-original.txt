@@ -1,0 +1,33 @@
+Crie um Painel do Tempo em Tempo Real usando HTML, CSS e JavaScript, com um visual moderno, bonito, organizado e responsivo, mas com código simples e fácil de entender para um aluno iniciante.
+
+O projeto deve ter exatamente três arquivos separados: index.html, style.css e script.js. Entregue o código completo de cada arquivo em blocos separados e explique brevemente onde cada código deve ser salvo.
+
+Requisitos do HTML:
+- Criar o título “Painel do Tempo”.
+- Criar um campo para digitar o nome de uma cidade e um botão para pesquisar.
+- Criar uma área para mensagens de carregamento e erros.
+- Criar uma área para mostrar os dados meteorológicos.
+- Importar style.css e script.js.
+- Deixar o HTML responsável apenas pela estrutura, sem CSS ou JavaScript dentro dele.
+
+Requisitos do CSS:
+- Colocar toda a aparência em style.css.
+- Criar cores agradáveis, painel organizado, botões e campos bonitos, bom espaçamento e efeitos simples.
+- Fazer o site funcionar bem em computadores e celulares usando responsividade.
+- Não colocar CSS no HTML.
+
+Requisitos do JavaScript:
+- Colocar toda a programação em script.js, sem código JavaScript dentro do HTML.
+- Usar fetch() para consultar uma API meteorológica real e tratar a resposta JSON.
+- Permitir pesquisar cidades diferentes.
+- Mostrar nome da cidade e estado/região ou país quando esses dados estiverem disponíveis.
+- Mostrar temperatura atual em graus Celsius, sensação térmica, umidade do ar, velocidade do vento, condição do tempo e um ícone correspondente.
+- Mostrar uma mensagem durante o carregamento.
+- Mostrar uma mensagem clara se a cidade não for encontrada ou se ocorrer um problema na consulta.
+- Impedir a busca quando o campo estiver vazio ou tiver apenas espaços.
+- Atualizar os dados sempre que o usuário pesquisar outra cidade.
+- Tratar erros de conexão e respostas inválidas para evitar que o site quebre.
+
+Use a API Open-Meteo, incluindo o serviço de geocodificação para transformar o nome da cidade em latitude e longitude e o endpoint de previsão para obter as condições atuais. Prefira essa API porque ela pode ser usada no projeto sem precisar cadastrar uma chave de API. Faça as consultas diretamente com fetch().
+
+Organize os elementos com nomes de classes e IDs fáceis de entender. Use somente recursos adequados para um projeto escolar iniciante, sem frameworks ou bibliotecas extras. No final, diga como salvar os três arquivos na mesma pasta e como testar pesquisas de cidades válidas, uma cidade inexistente, o campo vazio e uma nova busca depois da primeira consulta.

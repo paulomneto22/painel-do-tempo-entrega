@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atmosfera | Painel do Tempo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="fundo-luz luz-um"></div>
+    <div class="fundo-luz luz-dois"></div>
+
+    <main class="app-shell">
+
+        <header class="cabecalho">
+            <a href="index.html" class="logo">
+                <span class="logo-icone">☼</span>
+
+                <span class="logo-texto">
+                    <strong>atmosfera<span>.</span></strong>
+                    <small>SEU CLIMA, EM TEMPO REAL</small>
+                </span>
+            </a>
+
+            <div class="status-online">
+                <span class="bolinha-online"></span>
+                DADOS AO VIVO
+            </div>
+        </header>
+
+        <section class="introducao">
+            <span class="tag-introducao">✦ PREVISÃO INTELIGENTE</span>
+
+            <h1>O clima de qualquer lugar,<br>
+                <span>na palma da sua mão.</span>
+            </h1>
+
+            <p>
+                Descubra a temperatura e as condições do tempo
+                com informações meteorológicas atualizadas.
+            </p>
+        </section>
+
+        <section class="busca-container">
+
+            <form id="formBusca" class="form-busca">
+
+                <div class="campo-pesquisa">
+                    <span class="icone-pesquisa">⌕</span>
+
+                    <input
+                        type="text"
+                        id="cidade"
+                        name="cidade"
+                        placeholder="Digite o nome de uma cidade..."
+                        aria-label="Nome da cidade"
+                        autocomplete="off"
+                    >
+
+                    <button type="button" id="limparBusca" class="limpar-busca" aria-label="Limpar pesquisa">
+                        ×
+                    </button>
+                </div>
+
+                <button type="submit" id="botaoBuscar" class="botao-buscar">
+                    Consultar clima
+                    <span class="seta-botao">↗</span>
+                </button>
+
+            </form>
+
+            <div class="cidades-populares">
+                <span>EXPERIMENTE</span>
+
+                <button type="button" class="cidade-rapida" data-cidade="Jaú">
+                    Jaú
+                </button>
+
+                <button type="button" class="cidade-rapida" data-cidade="São Paulo">
+                    São Paulo
+                </button>
+
+                <button type="button" class="cidade-rapida" data-cidade="Rio de Janeiro">
+                    Rio de Janeiro
+                </button>
+
+                <button type="button" class="cidade-rapida" data-cidade="Lisboa">
+                    Lisboa
+                </button>
+            </div>
+
+        </section>
+
+        <div id="mensagem" class="mensagem" role="status" aria-live="polite">
+            <span class="mensagem-icone">✦</span>
+            <span id="textoMensagem">Pesquise uma cidade para descobrir como está o tempo.</span>
+        </div>
+
+        <section id="painelClima" class="painel-clima" hidden>
+
+            <div class="painel-superior">
+
+                <div class="identificacao-local">
+                    <span class="tag-card">◉ &nbsp; CONDIÇÕES ATUAIS</span>
+
+                    <h2 id="nomeCidade">—</h2>
+
+                    <p id="dataAtual" class="data-atual">—</p>
+
+                    <div class="linha-atualizacao">
+                        <span class="bolinha-online"></span>
+                        Última atualização disponível
+                    </div>
+                </div>
+
+                <div class="clima-destaque">
+
+                    <div class="icone-clima-container">
+                        <span id="iconeClima" class="icone-clima">☀️</span>
+                    </div>
+
+                    <div class="temperatura-container">
+                        <div class="temperatura-linha">
+                            <span id="temperatura" class="temperatura">--</span>
+                            <span class="unidade-temperatura">°C</span>
+                        </div>
+
+                        <p id="descricaoClima" class="descricao-clima">—</p>
+
+                        <span class="temperatura-legenda">TEMPERATURA ATUAL</span>
+                    </div>
+
+                </div>
+
+                <div class="detalhe-decorativo">
+                    ATMOS<br>
+                    <span>LIVE WEATHER</span>
+                </div>
+
+            </div>
+
+            <div class="divisor"></div>
+
+            <section class="secao-detalhes">
+
+                <div class="titulo-secao">
+                    <div>
+                        <span class="sobretitulo">DADOS METEOROLÓGICOS</span>
+                        <h3>Visão geral</h3>
+                    </div>
+
+                    <span class="tag-atual">AGORA</span>
+                </div>
+
+                <div class="detalhes">
+
+                    <article class="detalhe-card detalhe-termico">
+                        <div class="detalhe-topo">
+                            <span class="detalhe-icone">♨</span>
+                            <span class="detalhe-seta">↗</span>
+                        </div>
+
+                        <p class="detalhe-titulo">Sensação térmica</p>
+
+                        <div class="detalhe-valor">
+                            <span id="sensacaoTermica">--</span>
+                            <small>°C</small>
+                        </div>
+
+                        <p class="detalhe-legenda">Como o corpo sente o clima</p>
+                    </article>
+
+                    <article class="detalhe-card detalhe-umidade">
+                        <div class="detalhe-topo">
+                            <span class="detalhe-icone">◉</span>
+                            <span class="detalhe-seta">↗</span>
+                        </div>
+
+                        <p class="detalhe-titulo">Umidade do ar</p>
+
+                        <div class="detalhe-valor">
+                            <span id="umidade">--</span>
+                            <small>%</small>
+                        </div>
+
+                        <div class="barra-progresso">
+                            <div id="barraUmidade" class="barra-preenchida"></div>
+                        </div>
+
+                        <p class="detalhe-legenda">Umidade relativa</p>
+                    </article>
+
+                    <article class="detalhe-card detalhe-vento">
+                        <div class="detalhe-topo">
+                            <span class="detalhe-icone">≋</span>
+                            <span class="detalhe-seta">↗</span>
+                        </div>
+
+                        <p class="detalhe-titulo">Velocidade do vento</p>
+
+                        <div class="detalhe-valor">
+                            <span id="vento">--</span>
+                            <small>km/h</small>
+                        </div>
+
+                        <p class="detalhe-legenda">Velocidade registrada</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="secao-previsao">
+
+                <div class="titulo-secao">
+                    <div>
+                        <span class="sobretitulo">O QUE VEM POR AÍ?</span>
+                        <h3>Próximos dias</h3>
+                    </div>
+
+                    <span class="previsao-icone">✳</span>
+                </div>
+
+                <div id="listaPrevisao" class="lista-previsao"></div>
+
+            </section>
+
+            <div class="credito">
+                <span>◈</span>
+                Informações meteorológicas fornecidas por
+                <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">
+                    Open-Meteo
+                </a>
+            </div>
+
+        </section>
+
+        <footer class="rodape">
+            <div class="rodape-marca">
+                <span>☼</span> atmosfera.
+            </div>
+
+            <p>Feito para acompanhar o mundo lá fora.</p>
+
+            <span class="rodape-direitos">CLIMA EM TEMPO REAL © 2026</span>
+        </footer>
+
+    </main>
+
+</body>
+</html>
